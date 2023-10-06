@@ -28,7 +28,8 @@ post_data = [
 "id": 5,
 "title": " nesciunt quas odio",
 "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
-}]
+},
+]
 
 def pd_url(string):
     stripped_string = string.rstrip()
@@ -36,26 +37,7 @@ def pd_url(string):
     url = lower_case.replace(' ','-')
     return url
 
-if "slug" not in post_data[0]:
-    post_data[0]["slug"] = pd_url(str(post_data[0]['title']))
-if "slug" not in post_data[1]:
-    post_data[1]["slug"] = pd_url(str(post_data[1]['title']))
-if "slug" not in post_data[2]:
-    post_data[2]["slug"] = pd_url(str(post_data[2]['title']))
-if "slug" not in post_data[3]:
-    post_data[3]["slug"] = pd_url(str(post_data[3]['title']))
-if "slug" not in post_data[4]:
-    post_data[4]["slug"] = pd_url(str(post_data[4]['title']))
-
-
-i = 0
-while i < len(post_data):
-    print(post_data[i])
-    i = i + 1
-
-print('\n')
-
 for data in post_data:
-    print(data)
-
-
+    if "slug" not in data:
+        data["slug"] = pd_url(str(data['title']))
+        print(data)
