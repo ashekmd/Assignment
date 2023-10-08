@@ -31,6 +31,7 @@ post_data = [
 },
 ]
 
+print("Solution- using \"FOR loop\":\n")
 def pd_url(string):
     stripped_string = string.rstrip()
     lower_case = stripped_string.lower()
@@ -41,3 +42,12 @@ for data in post_data:
     if "slug" not in data:
         data["slug"] = pd_url(str(data['title']))
         print(data)
+
+print("\n")
+
+print("Solution- using \"While loop\":\n")
+i = 0
+while i < len(post_data):
+    post_data[i]["slug"] = pd_url(post_data[i]["title"])
+    print(post_data[i])
+    i += 1
